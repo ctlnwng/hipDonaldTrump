@@ -72,7 +72,7 @@ function runStream() {
             && toPost.substring(0, 4) != "...") {
             toPost = addPrefix(toPost);
         }
-        postTweet(msg);
+        postTweet(toPost);
     });
     stream.on('error', function (error) {
         console.log("Something went wrong with the stream.");
