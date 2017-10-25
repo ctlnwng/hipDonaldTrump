@@ -71,6 +71,7 @@ function runStream() {
 
         var tweetText = tweet.text.toLowerCase();
         var toPost = replaceAllWords(tweetText);
+        toPost = str.replace(/\&amp;/g, "&");
         if (toPost.length < 134
             && toPost.substring(0, 4) != "...") {
             toPost = addPrefix(toPost);
@@ -105,6 +106,8 @@ function runStreamTest() {
 
         var tweetText = tweet.text;
         var toPost = replaceAllWords(tweetText).toLowerCase();
+        toPost = toPost.replace(/\&amp;/g, "&");
+
         if (toPost.length < 134
             && toPost.substring(0, 4) != "...") {
             toPost = addPrefix(toPost);
@@ -143,7 +146,7 @@ var wordMap = {
     will: "finna",
     extremely: "hella",
     totally: "hella",
-    really: "hella",
+    really: "rlly",
     good: "gucci",
     big: "thicc",
     large: "dank",
