@@ -15,7 +15,7 @@ var testId = '920144750627508225';
 //=============================================
 
 console.log("The bot is starting...");
-runStreamTest();
+runStream();
 
 // gets collection of tweets and posts them every 10 minutes
 function getTweet() {
@@ -68,7 +68,7 @@ function runStream() {
         if (isReply(tweet)) {
             return;
         }
-        
+
         var tweetText = tweet.text.toLowerCase();
         var toPost = replaceAllWords(tweetText);
         if (toPost.length < 134
