@@ -15,8 +15,7 @@ var testId = '920144750627508225';
 //=============================================
 
 console.log("The bot is starting...");
-runStream();
-
+runStreamTest();
 
 // gets collection of tweets and posts them every 10 minutes
 function getTweet() {
@@ -66,6 +65,10 @@ function runStream() {
     // listen for tweets
     var stream = Twitter.stream('statuses/filter', { follow: trumpId });
     stream.on('tweet', function (tweet) {
+        if (isReply(tweet)) {
+            return;
+        }
+        
         var tweetText = tweet.text.toLowerCase();
         var toPost = replaceAllWords(tweetText);
         if (toPost.length < 134
@@ -96,6 +99,10 @@ function runStreamTest() {
     // listen for tweets
     var stream = Twitter.stream('statuses/filter', { follow: testId });
     stream.on('tweet', function (tweet) {
+        if (isReply(tweet)) {
+            return;
+        }
+
         var tweetText = tweet.text;
         var toPost = replaceAllWords(tweetText).toLowerCase();
         if (toPost.length < 134
@@ -107,6 +114,16 @@ function runStreamTest() {
     stream.on('error', function (error) {
         console.log("Something went wrong with the stream.");
     });
+}
+
+function isReply(tweet) {
+    if ( tweet.retweeted_status
+      || tweet.in_reply_to_status_id
+      || tweet.in_reply_to_status_id_str
+      || tweet.in_reply_to_user_id
+      || tweet.in_reply_to_user_id_str
+      || tweet.in_reply_to_screen_name )
+      return true
 }
 
 var wordMap = {
