@@ -71,7 +71,7 @@ function runStream() {
 
         var tweetText = tweet.text.toLowerCase();
         var toPost = replaceAllWords(tweetText);
-        toPost = str.replace(/\&amp;/g, "&");
+        toPost = toPost.replace(/\&amp;/g, "&");
         if (toPost.length < 134
             && toPost.substring(0, 4) != "...") {
             toPost = addPrefix(toPost);
