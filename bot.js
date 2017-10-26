@@ -85,12 +85,14 @@ function runStream() {
 
 function addPrefix(str) {
     var prefixes = [
-        "Fam, ",
-        "Bruh, ",
-        "Tbh ",
-        "Yo, "
+        "fam, ",
+        "bruh, ",
+        "tbh ",
+        "yo, ",
+        "imo ",
+        "so like ",
+        "lmao "
     ]
-
     var pre = prefixes[Math.floor(Math.random()*prefixes.length)];
 
     return pre + str;
@@ -108,7 +110,7 @@ function runStreamTest() {
         var toPost = replaceAllWords(tweetText).toLowerCase();
         toPost = toPost.replace(/\&amp;/g, "&");
 
-        if (toPost.length < 134
+        if (toPost.length < 132
             && toPost.substring(0, 4) != "...") {
             toPost = addPrefix(toPost);
         }
@@ -143,7 +145,7 @@ var wordMap = {
     amazing: "lit",
     greatest: "littest",
     finest: "littest",
-    will: "finna",
+    //will: "finna",
     extremely: "hella",
     totally: "hella",
     really: "rlly",
@@ -155,7 +157,8 @@ var wordMap = {
     biggest: "thiccest",
     me: "ya boi",
     nice: "dank",
-    be: "b"
+    be: "b",
+    this: "dis"
 }
 
 function replaceAllWords(str) {
