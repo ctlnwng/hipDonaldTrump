@@ -2,3 +2,12 @@
 A simple Twitter bot that adds modern slang to Donald Trump's tweets.
 
 Created using [twit](https://www.npmjs.com/package/twit), a Twitter API client for Node.js. Deployed using [Heroku](https://www.heroku.com/home).
+
+### Project Aim
+
+My goal with building this Twitter bot was to carry out the persona of someone who engages in Internet or “meme” culture and adopts the slang that circulates online. This persona is vastly different from that of a high profile politician who is expected to deliver serious and deliberate statements. Therefore, combining the two creates a brand new personality that is both entertaining and authoritative. 
+
+The reason I decided to “impersonate” Donald Trump is because he is often accused of making ridiculous and unintelligent statements. **There arises this distinction between content and the how that content is presented.**
+
+Hip Donald Trump combines the two together by presenting content that can be perceived as absurd and unqualified in a language with the same impression.
+
