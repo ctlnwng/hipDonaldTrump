@@ -1,21 +1,16 @@
 {
-  "name": "hip-politicians",
+  "name": "hip-donald-trump",
   "version": "1.0.0",
-  "description": "a twitter bot that replaces the tweets of politicians with modern slang",
-  "main": "index.js",
+  "description": "a twitter bot that decorates donald trump's tweets with modern slang",
+  "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ctlnwng/hip-politicians.git"
+    "url": "git+https://github.com/ctlnwng/hipDonaldTrump.git"
   },
   "author": "Caitlin Wang",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ctlnwng/hip-politicians/issues"
-  },
-  "homepage": "https://github.com/ctlnwng/hip-politicians#readme",
   "dependencies": {
     "twit": "^2.2.9"
   }
