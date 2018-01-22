@@ -43,7 +43,7 @@ function runStream() {
         var tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
 
         // turn tweet to all lower case
-        tweetText.toLowerCase();
+        tweetText = tweetText.toLowerCase();
 
         // replace words in tweet
         var toPost = replaceAllWords(tweetText);
