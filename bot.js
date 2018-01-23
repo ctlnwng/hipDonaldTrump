@@ -40,19 +40,16 @@ function runStream() {
         }
 
         // remove any links
-        var tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
-
-        // turn tweet to all lower case
-        tweetText = tweetText.toLowerCase();
+        var tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
 
         // replace words in tweet
-        var toPost = replaceAllWords(tweetText);
+        var toPost = replaceAllWords(tweetText).toLowerCase();
 
         // deal with ampersand
         toPost = toPost.replace(/\&amp;/g, "&");
 
         // add prefix if tweet is short enough
-        if (toPost.length < 134
+        if (toPost.length < 274
             && toPost.substring(0, 2) != "..") {
             toPost = addPrefix(toPost);
         }
@@ -70,20 +67,26 @@ function runStreamTest() {
     // listen for tweets
     var stream = Twitter.stream('statuses/filter', { follow: testId });
     stream.on('tweet', function (tweet) {
+        // do not tweet if the tweet is a reply or retweet
         if (isReply(tweet)) {
             return;
         }
 
         // remove any links
-        var tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
+        var tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
 
+        // replace words in tweet
         var toPost = replaceAllWords(tweetText).toLowerCase();
+
+        // deal with ampersand
         toPost = toPost.replace(/\&amp;/g, "&");
 
-        if (toPost.length < 134
+        // add prefix if tweet is short enough
+        if (toPost.length < 274
             && toPost.substring(0, 2) != "..") {
             toPost = addPrefix(toPost);
         }
+
         console.log(toPost);
     });
     stream.on('error', function (error) {
