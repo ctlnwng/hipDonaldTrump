@@ -39,9 +39,14 @@ function runStream() {
             return;
         }
 
-        // remove any links
-        var tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"")
+        var tweetText;
 
+        if (tweet.length > 140) {
+            tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
+        } else {
+            tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
+        }
+        
         // replace words in tweet
         var toPost = replaceAllWords(tweetText).toLowerCase();
 
@@ -154,7 +159,8 @@ function addPrefix(str) {
         "tbh ",
         "yo, ",
         "imo ",
-        "lmao "
+        "lmao ",
+        "", "", "", "", "", ""
     ]
 
     // choose a random prefix to prepend given string with
