@@ -41,7 +41,7 @@ function runStream() {
 
         var tweetText;
 
-        if (tweet.length > 140) {
+        if (tweet.text.length > 140) {
             tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
         } else {
             tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
