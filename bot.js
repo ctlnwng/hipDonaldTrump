@@ -39,12 +39,14 @@ function runStream() {
             return;
         }
 
-        var tweetText;
+        var tweetTextRaw = tweet.extended_tweet.full_text;
+        var tweetText
 
-        if (tweet.text.length > 140) {
-            tweetText = tweet.extended_tweet.full_text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
-        } else {
+        if (tweetTextRaw == null || tweetTextRaw.length <= 140 ) {
             tweetText = tweet.text.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
+        }
+        else {
+            tweetText = tweetTextRaw.replace(/(?:https?|ftp):\/\/[\n\S]+/g,"");
         }
         
         // replace words in tweet
